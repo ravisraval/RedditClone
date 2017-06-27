@@ -1,0 +1,12 @@
+
+<h1>Reply to comment</h1>
+<form action="<%= comments_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="">Content</label>
+  <input id="Content" type="text" name="comment[content]">
+  <input type="hidden" name="comment[post_id]" value="<%= @comment.post_id %>">
+  <input type="hidden" name="comment[parent_comment_id]" value="<%= params[:comment_id] %>">
+
+
+  <input type="submit" value="Reply to comment">
+</form>

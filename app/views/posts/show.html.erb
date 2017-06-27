@@ -1,0 +1,15 @@
+<h1><%= @post.title %></h1>
+<h1>By <%= @post.author.username %></h1>
+<%= @post.content %>
+
+<br>
+
+  <%= link_to "Add comment:", new_post_comment_url(@post)%>
+  <br>
+
+<% @post.comments.where(parent_comment_id: nil).each do |comment| %>
+  <%= print_sub_comments(comment) %>
+  <br>
+  <%= link_to comment.content, comment_url(comment) %>
+
+<% end %>

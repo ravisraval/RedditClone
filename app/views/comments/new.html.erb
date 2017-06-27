@@ -1,0 +1,10 @@
+<h1>Add Comment</h1>
+<form action="<%= comments_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="">Content</label>
+  <input id="Content" type="text" name="comment[content]">
+  <input type="hidden" name="comment[post_id]" value="<%= params[:post_id] %>">
+
+  <input type="submit" value="Add Comment">
+</form>
+<%= flash[:errors] %>
